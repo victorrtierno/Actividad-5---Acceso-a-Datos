@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogo>
+    <videojuego id="1">
+        <titulo>Cyberpunk 2077
+        <plataforma>PC</plataforma>
+        <genero>RPG</genero>
+        <precio>39.99</precio>
+        <stock>12</stock>
+    </videojuego>
+</catalogo>
+
+
+
