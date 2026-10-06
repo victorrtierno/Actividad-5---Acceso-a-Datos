@@ -183,7 +183,7 @@ public class App {
             bw.newLine();
             
             for (Videojuego v : catalogo) {
-                // Si el objeto proviene del XML, codigoProveedor será nulo por el @XmlTransient
+                // Si el objeto proviene del XML, codigoProveedor no aparecera por el @XmlTransient
                 String codigo = (v.getCodigoProveedor() != null) ? v.getCodigoProveedor() : "N/A";
                 
                 String linea = v.getId() + "," + v.getTitulo() + "," + v.getPlataforma() + "," + 
