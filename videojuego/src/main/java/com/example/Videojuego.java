@@ -44,8 +44,7 @@ public class Videojuego {
 
     private int stock;
 
-    //@XmlTransient --> señala que el elemento no se incluirá en el xml
-    @XmlTransient
+    @XmlTransient //señala que el elemento no se incluirá en el xml
     private String codigoProveedor;
 
     @XmlAttribute //señala categoría como atributo de Juego
