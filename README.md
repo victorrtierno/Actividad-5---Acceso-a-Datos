@@ -87,15 +87,7 @@ Los mensajes salen en español y dicen qué ha pasado.
 
 (Aquí van las pruebas, con su captura.)
 
-## 8. Lo que falta
-
-- Si se escribe una letra en el menú, la app se cierra.
-- La carga usa `videojuego/videojuegos.csv` pero la opción 7 busca `videojuegos.csv`.
-- Si el XML no tiene videojuegos, la lista queda en `null`.
-- `AppTest.java` y `VideojuegoTest.java` son copias de las clases, no son pruebas.
-- Quitar los `.class` antes de entregar.
-
-## 9. Roles
+## 8. Roles
 
 - Team Leader: Pablo Lara
 - Programador experto: Víctor Tierno
