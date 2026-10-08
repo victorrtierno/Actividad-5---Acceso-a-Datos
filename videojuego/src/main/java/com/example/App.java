@@ -63,7 +63,7 @@ public class App {
     }
     public static void CargarcatalogoDesdeCSV() {
         // Lógica para cargar el catálogo desde un archivo CSV
-        String ruta = "videojuegos.csv"; 
+        String ruta = "videojuego/videojuegos.csv"; 
         File fichero = new File(ruta);
 
         if (!fichero.exists()) {
@@ -198,28 +198,40 @@ public class App {
     }
 
     public static void buscarVideojuego() {
-        if (catalogo.isEmpty()) {
-            System.err.println("Error: El catálogo está vacío. Realice una carga previa.");
-            return;
-        }
-        
-        // Se asume que usas el mismo scanner global, si no, puedes instanciar uno local
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduzca el ID o Título del videojuego a buscar: ");
-        String busqueda = sc.nextLine().toLowerCase();
-        
-        boolean encontrado = false;
-        for (Videojuego v : catalogo) {
-            if (String.valueOf(v.getId()).equals(busqueda) || v.getTitulo().toLowerCase().contains(busqueda)) {
+    if (catalogo.isEmpty()) {
+        System.err.println("Error: El catálogo está vacío. Realice una carga previa.");
+        return;
+    }
+    
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Introduzca el ID o Título del videojuego a buscar: ");
+    String busqueda = sc.nextLine().toLowerCase().trim();
+    
+    boolean encontrado = false;
+    
+    // Comprueba si el usuario ha introducido solo números
+    boolean esNumero = busqueda.matches("\\d+");
+    
+    for (Videojuego v : catalogo) {
+        if (esNumero) {
+            // Si es un número, comprobamos únicamente que el ID sea idéntico
+            if (String.valueOf(v.getId()).equals(busqueda)) {
+                System.out.println("Coincidencia encontrada: " + v.toString());
+                encontrado = true;
+            }
+        } else {
+            // Si contiene letras, buscamos coincidencias en el título
+            if (v.getTitulo().toLowerCase().contains(busqueda)) {
                 System.out.println("Coincidencia encontrada: " + v.toString());
                 encontrado = true;
             }
         }
-        
-        if (!encontrado) {
-            System.out.println("Aviso: No se ha encontrado ningún videojuego con ese criterio.");
-        }
     }
+    
+    if (!encontrado) {
+        System.out.println("Aviso: No se ha encontrado ningún videojuego con ese criterio.");
+    }
+}
 
     public static void informacionDeFicheros() {
         String[] rutas = {"videojuegos.csv", "catalogo.xml", "videojuegos_exportado.csv"};

@@ -16,7 +16,9 @@ public class Catalogo {
     private List<Videojuego> videojuegos;
 
     // JAXB necesita un constructor vacío
-    public Catalogo() {}
+    public Catalogo() {
+        
+    }
 
     public List<Videojuego> getVideojuegos() {
         return videojuegos;

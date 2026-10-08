@@ -22,17 +22,15 @@ XmlAccessType.NONE -> No mapea automáticamente los miembros. Tendremos que indi
 //@XmlAccessorOrder(XmlAccessOrder.UNDEFINED) //no se garantiza ningún orden para los elementos
 //@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL) controla el orden de campos y propiedades de una clase -> orden alfabético
 @XmlType(propOrder = {  //indica el orden específico de los elementos
-    "id",
     "titulo",
     "plataforma",
     "genero",
     "precio",
-    "stock",
-    "codigoProveedor"
+    "stock"
 })
 public class Videojuego {
 
-    //@XmlElement(name = "identificador"), si quisieramos cambiar el nombre del nodo en el xml
+    @XmlAttribute //señala categoría como atributo de Juego
     private int id;
 
     @XmlElement(required = true)  //titulo es requerido
@@ -47,7 +45,6 @@ public class Videojuego {
     @XmlTransient //señala que el elemento no se incluirá en el xml
     private String codigoProveedor;
 
-    @XmlAttribute //señala categoría como atributo de Juego
     private String genero; 
 
 
@@ -129,7 +126,7 @@ public class Videojuego {
          + " ├─ Título:     " + titulo + "\n"
          + " ├─ Plataforma: " + plataforma + "\n"
          + " ├─ Género:     " + genero + "\n"
-         + " ├─ Precio:     " + precio + " €\n"
+         + " ├─ Precio:     " + precio + " EUR\n"
          + " ├─ Stock:      " + stock + " uds.\n"
          + " └─ Código del Proveedor:  " + codigoProveedor;
     }
