@@ -84,6 +84,7 @@ public class App {
                     continue; // Saltamos la primera línea de encabezados
                 }
 
+                // split separa la cadena de texto
                 String[] datos = linea.split(","); // Tenemos en cuenta separación por comas
 
                 if (datos.length == 7) {
